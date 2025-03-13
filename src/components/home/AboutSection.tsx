@@ -16,7 +16,7 @@ interface AboutSectionProps {
 }
 
 const AboutSection = ({
-  title = "Our Story",
+  title = "Insights about our company",
   subtitle = "Premium Dry Fruits Since 2010",
   story = "Founded with a passion for quality, we started as a small family business sourcing the finest dry fruits from around the world. Over the years, we have grown into a trusted name in premium dry fruits while maintaining our commitment to quality and sustainability.",
   mission = "Our mission is to bring the healthiest, most flavorful dry fruits to your table while supporting sustainable farming practices and fair trade relationships with our growers.",
@@ -28,81 +28,78 @@ const AboutSection = ({
       "https://images.unsplash.com/photo-1530062845289-9109b2c9c868?w=800&q=80",
   },
 }: AboutSectionProps) => {
+  const stats = [
+    { value: 27, label: "Years Experience" },
+    { value: 18, label: "Countries" },
+    { value: 56, label: "Products" },
+    { value: 13, label: "Awards" },
+  ];
+
   return (
-    <section className="w-full py-16 bg-amber-50">
+    <section className="w-full py-16 bg-black/90">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-800 mb-2">
+          <h2 className="text-3xl font-bold tracking-tight mb-2 gradient-text">
             {title}
           </h2>
-          <p className="text-lg text-amber-600">{subtitle}</p>
-          <Separator className="mt-4 mx-auto w-24 bg-amber-300" />
+          <p className="text-gray-400 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <Card className="bg-white border-amber-200">
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold text-amber-800 mb-3">
-                  Our Journey
-                </h3>
-                <p className="text-gray-700">{story}</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-white border-amber-200">
-              <CardContent className="pt-6">
-                <h3 className="text-xl font-semibold text-amber-800 mb-3">
-                  Our Mission
-                </h3>
-                <p className="text-gray-700">{mission}</p>
-              </CardContent>
-            </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-white">Our Story</h3>
+            <p className="text-gray-300 mb-6">{story}</p>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Our Mission
+            </h3>
+            <p className="text-gray-300">{mission}</p>
           </div>
-
-          <div className="grid grid-cols-1 gap-4">
-            <div className="relative h-64 overflow-hidden rounded-lg shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="overflow-hidden rounded-lg">
               <img
                 src={images.farm}
-                alt="Our farms"
-                className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+                alt="Our Farm"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white font-medium">Our Partner Farms</p>
-              </div>
             </div>
-
-            <div className="relative h-64 overflow-hidden rounded-lg shadow-md">
+            <div className="overflow-hidden rounded-lg">
               <img
                 src={images.processing}
-                alt="Processing facility"
-                className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+                alt="Processing Facility"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <p className="text-white font-medium">Processing & Packaging</p>
-              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="bg-white border-amber-200">
-            <CardContent className="pt-6">
-              <h3 className="text-xl font-semibold text-amber-800 mb-3">
-                Sourcing Practices
-              </h3>
-              <p className="text-gray-700">{sourcingInfo}</p>
-            </CardContent>
-          </Card>
+        <Separator className="my-12 bg-gray-800" />
 
-          <Card className="bg-white border-amber-200">
-            <CardContent className="pt-6">
-              <h3 className="text-xl font-semibold text-amber-800 mb-3">
-                Quality Commitment
-              </h3>
-              <p className="text-gray-700">{qualityCommitment}</p>
-            </CardContent>
-          </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Sourcing & Sustainability
+            </h3>
+            <p className="text-gray-300 mb-6">{sourcingInfo}</p>
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              Quality Commitment
+            </h3>
+            <p className="text-gray-300">{qualityCommitment}</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4">
+            {stats.map((stat, index) => (
+              <Card
+                key={index}
+                className="bg-secondary/50 border border-primary/10 card-hover"
+              >
+                <CardContent className="p-6 text-center">
+                  <p className="text-3xl font-bold gradient-text">
+                    {stat.value}+
+                  </p>
+                  <p className="text-gray-400">{stat.label}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>

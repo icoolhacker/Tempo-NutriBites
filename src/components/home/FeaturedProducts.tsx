@@ -21,7 +21,7 @@ interface FeaturedProductsProps {
 }
 
 const FeaturedProducts = ({
-  title = "Featured Products",
+  title = "AI Development Tools Crafted with Brilliance, Style, Quality and Creativity",
   subtitle = "Handpicked premium quality dry fruits for you",
   products = [
     {
@@ -134,23 +134,23 @@ const FeaturedProducts = ({
   };
 
   return (
-    <section className="w-full py-16 bg-gray-50">
+    <section className="w-full py-16 bg-black/95">
       <div className="container mx-auto px-4">
         <div className="mb-10 text-center">
-          <h2 className="text-3xl font-bold mb-2">{title}</h2>
-          <p className="text-gray-600">{subtitle}</p>
+          <h2 className="text-3xl font-bold mb-2 gradient-text">{title}</h2>
+          <p className="text-gray-400">{subtitle}</p>
         </div>
 
         <div className="relative">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-xl font-semibold">Our Selection</h3>
+            <h3 className="text-xl font-semibold text-white">Our Selection</h3>
             <div className="flex space-x-2">
               <Button
                 variant="outline"
                 size="icon"
                 onClick={handlePrevious}
                 disabled={currentIndex === 0}
-                className="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full border-primary/50 text-primary hover:bg-primary/20"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -159,7 +159,7 @@ const FeaturedProducts = ({
                 size="icon"
                 onClick={handleNext}
                 disabled={currentIndex >= products.length - itemsPerPage}
-                className="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full border-primary/50 text-primary hover:bg-primary/20"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
@@ -186,7 +186,9 @@ const FeaturedProducts = ({
           </div>
 
           <div className="mt-10 text-center">
-            <Button className="px-8">View All Products</Button>
+            <Button className="px-8 gradient-bg hover:opacity-90">
+              View All Products
+            </Button>
           </div>
         </div>
       </div>
